@@ -10,7 +10,7 @@ class Nav extends Component {
         </Link>
 
         <Link to="/carts/"><li className="fa">
-            <span>&#128722;</span>
+            <span>Cart</span>
           </li>
           <span> {this.props.qty} </span>
         </Link>
