@@ -7,7 +7,7 @@ import VegetableList from "../Vegetable/VegetableList";
 import VegetableDetails from "../Vegetable/VegetableDetails";
 import FruitDetails from "../Fruit/FruitDetails";
 import FruitList from "../Fruit/FruitList";
-import { Link } from "react-router-dom";
+import { Link, Switch } from "react-router-dom";
 import Carts from "../Carts/Carts";
 import Search from "../Search/Search";
 import Pay from "../Pay/Pay";
@@ -28,8 +28,8 @@ class App extends Component {
       qty: 0,
       total: null,
       sortValue: "",
-      count:1,
-      inputValue:""
+      count: 1,
+      inputValue: "",
     };
   }
 
@@ -49,53 +49,41 @@ class App extends Component {
       .catch(console.error);
   }
 
-  incrementCount=(event)=>{
+  incrementCount = () => {
     this.setState({
-      
       count: this.state.count + 1,
-      qty:this.state.qty + 1 
-
+      qty: this.state.qty + 1,
     });
-  }
-
-
-
+  };
 
   // incrementCount=(id)=>{
   // if(this.state.carts.includes(id)){
   //   this.setState({
-     
+
   //       count:1,
-  //       qty:this.state.qty + 1 
-           
+  //       qty:this.state.qty + 1
+
   //   });
   // }
   //       else {
   //         this.setState({
   //         count: this.state.count + 1,
-       
-    
+
   //   });}
   // }
 
-
-  DecrementCount =(event)=>{
+  DecrementCount = (event) => {
     this.setState({
       count: this.state.count - 1,
-      qty:this.state.qty - 1 
+      qty: this.state.qty - 1,
     });
-  }
-  
+  };
+
   addQty = () => {
     this.setState((prevState) => ({
       qty: prevState.qty + 1,
     }));
   };
-
-  
-
-
-
 
   handleFruitDetail = (id) => {
     const thisFruit = this.state.fruits.find((fruit) => {
@@ -126,8 +114,6 @@ class App extends Component {
     });
   };
 
- 
-
   filterOnChange = (event) => {
     let inputValue = event.target.value;
     // let filteredItemFruit = this.state.fruits.filter((fruit) => {
@@ -139,12 +125,11 @@ class App extends Component {
     this.setState({
       // sortVeg: filteredItemVeg,
       // sortFruit: filteredItemFruit,
-      inputValue:inputValue
+      inputValue: inputValue,
     });
   };
 
   render() {
-    console.log(this.state.carts.price);
     // console.log(this.state.sortVeg);
     return (
       <div className="apphead">
@@ -152,15 +137,12 @@ class App extends Component {
 
         <main className="appmain">
           <form>
-          
-           <input
+            <input
               type="text"
-             
               className="put"
               placeholder="Search"
               onChange={this.filterOnChange}
             />
-           
           </form>
 
           <Link to="/vegetablelist/vegetablelist">
@@ -182,99 +164,101 @@ class App extends Component {
             <li>Comming</li>
           </Link>
 
-          <Route path="/" exact render={() => <Home />} />
+          <Switch>
+            <Route path="/" exact render={() => <Home />} />
 
-          <Route
-            path="/vegetablelist/vegetablelist"
-            exact
-            render={() => (
-              <VegetableList
-                vegetables={this.state.vegetables}
-                handleVegDetail={this.handleVegDetail}
-              />
-            )}
-          />
+            <Route
+              path="/vegetablelist/vegetablelist"
+              exact
+              render={() => (
+                <VegetableList
+                  vegetables={this.state.vegetables}
+                  handleVegDetail={this.handleVegDetail}
+                />
+              )}
+            />
 
-          <Route
-            path="/fruitlist/fruitlist"
-            exact
-            render={() => (
-              <FruitList
-                fruits={this.state.fruits}
-                handleFruitDetail={this.handleFruitDetail}
-              />
-            )}
-          />
+            <Route
+              path="/fruitlist/fruitlist"
+              exact
+              render={() => (
+                <FruitList
+                  fruits={this.state.fruits}
+                  handleFruitDetail={this.handleFruitDetail}
+                />
+              )}
+            />
 
-          <Route
-            path="/vegetabledetails/:id"
-            exact
-            render={(routerProps) => (
-              <VegetableDetails
-                handlePrice={this.handlePrice}
-                count={this.state.count} 
-                addQty={this.addQty}
-                addCart={this.addCart}
-                selectedVeg={this.state.selectedVeg}
-                carts={this.state.carts}
-                match={routerProps.match}
-              />
-            )}
-          />
+            <Route
+              path="/vegetabledetails/:id"
+              exact
+              render={(routerProps) => (
+                <VegetableDetails
+                  handlePrice={this.handlePrice}
+                  count={this.state.count}
+                  addQty={this.addQty}
+                  addCart={this.addCart}
+                  selectedVeg={this.state.selectedVeg}
+                  carts={this.state.carts}
+                  match={routerProps.match}
+                />
+              )}
+            />
 
-          <Route
-            path="/fruitdetails/:id"
-            exact
-            render={(routerProps) => (
-              <FruitDetails
-                handlePrice={this.handlePrice}
-                addCart={this.addCart}
-                count={this.state.count} 
-                addQty={this.addQty}
-                selectedFruit={this.state.selectedFruit}
-                carts={this.state.carts}
-                match={routerProps.match}
-              />
-            )}
-          />
+            <Route
+              path="/fruitdetails/:id"
+              exact
+              render={(routerProps) => (
+                <FruitDetails
+                  handlePrice={this.handlePrice}
+                  addCart={this.addCart}
+                  count={this.state.count}
+                  addQty={this.addQty}
+                  selectedFruit={this.state.selectedFruit}
+                  carts={this.state.carts}
+                  match={routerProps.match}
+                />
+              )}
+            />
 
-          <Route
-            path="/carts/"
-            exact
-            render={(routerProps) => (
-              <Carts
-              count={this.state.count} 
-              incrementCount={this.incrementCount}
-              DecrementCount={this.DecrementCount}
-                qty={this.state.qty}
-                cartPrice={this.state.cartPrice}
-                carts={this.state.carts}
-                addCart={this.addCart}
-                match={routerProps.match}
-              />
-            )}
-          />
+            <Route
+              path="/carts/"
+              exact
+              render={(routerProps) => (
+                <Carts
+                  count={this.state.count}
+                  incrementCount={this.incrementCount}
+                  DecrementCount={this.DecrementCount}
+                  qty={this.state.qty}
+                  cartPrice={this.state.cartPrice}
+                  carts={this.state.carts}
+                  addCart={this.addCart}
+                  match={routerProps.match}
+                />
+              )}
+            />
 
-          <Route
-            path="/search/"
-            exact
-            render={(routerProps) => (
-              <Search
-              inputValue={this.state.inputValue}
-              fruits={this.state.fruits}
-              vegetables={this.state.vegetables}
-                // sortVeg={this.state.sortVeg}
-                // sortFruit={this.state.sortFruit}
-                filterOnChange={this.filterOnChange}
-                match={routerProps.match}
-              />
-            )}
-          />
-          <Route
-            path="/pay/"
-            exact
-            render={(routerProps) => <Pay match={routerProps.match} />}
-          />
+            <Route
+              path="/search/"
+              exact
+              render={(routerProps) => (
+                <Search
+                  inputValue={this.state.inputValue}
+                  fruits={this.state.fruits}
+                  vegetables={this.state.vegetables}
+                  // sortVeg={this.state.sortVeg}
+                  // sortFruit={this.state.sortFruit}
+                  filterOnChange={this.filterOnChange}
+                  match={routerProps.match}
+                />
+              )}
+            />
+            <Route
+              path="/pay/"
+              exact
+              render={(routerProps) => <Pay match={routerProps.match} />}
+            />
+          </Switch>
         </main>
       </div>
     );

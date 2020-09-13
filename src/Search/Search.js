@@ -12,10 +12,10 @@ class Search extends Component {
         {vegan
           .filter((veg) => veg.includes(inpu))
           .map((filteredName) => (
-            <ul>
-              <img src={filteredName.image_url} alt={filteredName.image_url} />
-              <p>{filteredName.name} </p>
-              <p>{filteredName.price} </p>
+              <ul>
+            <img src={filteredName.image_url} alt={filteredName.image_url} />
+            <p>{filteredName.name} </p>
+            <p>{filteredName.price} </p>
             </ul>
           ))}
         else
@@ -23,11 +23,14 @@ class Search extends Component {
           .filter((fruit) => fruit.includes(inpu))
           .map((filteredName) => (
             <ul>
-              <img src={filteredName.image_url} alt={filteredName.image_url} />
-              <p>{filteredName.name} </p>
-              <p>{filteredName.price} </p>
+            <img src={filteredName.image_url} alt={filteredName.image_url} />
+            <p>{filteredName.name} </p>
+            <p>{filteredName.price} </p>
             </ul>
           ))}
+
+
+
         <Link to="/carts/">
           <li>Add To Cart</li>
         </Link>

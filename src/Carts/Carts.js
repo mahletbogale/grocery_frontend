@@ -1,91 +1,89 @@
-// import React, { Component } from 'react';
-
-// class Carts extends Component {
-//   removeFromCart = () => {
-   
-//   };
-//     render() {
-//        let quantity=this.props.qty;
-//           console.log(this.props.cartPrice);
-//           console.log(this.props.qty);
-//           console.log(this.props.carts);
-//         return (
-//             <div className="detail">
-//               <h1>Subtotal:</h1>
-//             {this.props.carts.map((cart) => {
-              
-//                 return (
-        
-//                     <div className="cart">
-                      
-//                       <img src={cart.image_url} alt={cart.image_url} width="300px"/>
-//                       <p>{cart.name} </p>
-//                       <p>{cart.price} </p>
-//                       <p>{cart.description} </p>
-//                       <p>{cart.lebel} </p>
-//                       <li>Pay</li>
-//                       <h2>count:</h2>
-//                       <li>+</li><li>-</li>
-//                       <li onClick={this.removeFromCart}>Delete</li>
-                    
-//                     </div>
-                  
-//                 );
-//               })}
-//             </div>
-//         );
-//     }
-// }
-
-// export default Carts;
 
 
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 let coun;
+let count;
+let items = {};
+let pri;
+let total;
+let quantit;
 class Carts extends Component {
- 
-  // removeFromCart = () => {
-   
-  // };
-  add=(id)=>{
-    coun =1;
+  quantit=this.props.qty;
+  pri=items.price;
+  total= pri * quantit;
+
+
+
+  add = (event) => {
+    coun = this.props.count;
+    if(!coun < 1){
     this.props.incrementCount(coun);
-  }
-  remove=(id)=>{
-    this.props.DecrementCount(coun);
-  }
-
-
-    render() {
-       coun =this.props.count;
-       let quantity=(this.props.qty);
-        
-        return (
-            <div className="detail">
-              <h1>Subtotal:</h1>
-            {this.props.carts.map((cart) => {
-              
-                return (
-        
-                    <div className="cart">
-                      
-                      <img src={cart.image_url} alt={cart.image_url} width="300px"/>
-                      <p>{cart.name} </p>
-                      <p>{cart.price} </p>
-                      <p>{cart.description} </p>
-                      <p>{cart.lebel} </p>
-                      <li>Pay</li>
-                      <h2>count:{this.props.count}</h2>
-                      <li   onClick={this.add}>+</li><li   onClick={this.remove}>-</li>
-                      <li onClick={this.removeFromCart}>Delete</li>
-                    
-                    </div>
-                  
-                );
-              })}
-            </div>
-        );
     }
+  };
+
+  subtract = (event) => {
+    coun = this.props.count;
+   if(!coun  < 1) {
+    this.props.DecrementCount(coun);
+   }
+  };
+
+  render() {
+    coun = this.props.count;
+    let quantity = this.props.qty;
+    // let cart = this.props.carts[this.props.carts.length-1];
+    // let items = {};
+    for (let item of this.props.carts) {
+      console.log(item);
+      if (!items[item.name]) {
+        items[item.name] = {
+          name: item.name,
+          price: item.price,
+          description: item.description,
+          image_url: item.image_url,
+          lebel: item.lebel,
+          count: 1,
+        };
+      } 
+       else {
+        items[item.name].count++;
+        console.log("hey");
+      }
+      
+    }
+    
+    let result=[];
+    for(let cart in items) {
+      
+      // console.log(cart["image_url"]);
+    let outPut= (<div className="cart">
+    
+    <img src={items[cart].image_url} alt={items[cart].image_url} width="300px" />
+
+    <p>{items[cart].name} </p>
+    <p>{items[cart].price} </p>
+    <p>{items[cart].description} </p>
+    <p>{items[cart].lebel} </p>
+    <Link to="/pay"><li>Pay</li></Link>
+
+   
+    <h2>count:{this.props.count}</h2>
+    {/* {items[cart].count} */}
+    <li onClick={this.add}>+</li>
+    <li onClick={this.subtract}>-</li>
+    <li onClick={this.removeFromCart}>Delete</li>
+  </div>)
+  console.log(items[cart].price);
+     result.push(outPut);
+    }
+    return (
+      <div className="detail">
+     <h1>Subtotal:{total}</h1>   
+       {/* <h1>Subtotal:(({items[cart].price})*{this.props.qty})</h1> */}
+        {result}</div>
+    );
+  }
 }
 
 export default Carts;
