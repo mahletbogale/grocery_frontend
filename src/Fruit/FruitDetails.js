@@ -8,8 +8,7 @@ let count;
 class FruitDetails extends Component {
 
   fruitCart = (item) => {
-    // this.props.addCart(fruitiCart);
-    // this.props.addQty();
+   
  if(this.props.carts.includes(this.props.addCart(fruitiCart)))
     return this.props.count +1;
     else{
@@ -20,7 +19,7 @@ class FruitDetails extends Component {
 
   render() {
     fruitiCart = this.props.selectedFruit;
-    // searchedFruit=this.props.sortfruit;
+  
     return (
       <div className="detail">
        <div >

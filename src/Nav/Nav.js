@@ -12,7 +12,7 @@ class Nav extends Component {
         <Link to="/carts/"><li className="fa">
             <span>Cart</span>
           </li>
-          <span> {this.props.qty} </span>
+          <span> {this.props.qty}</span>
         </Link>
       </nav>
     );
