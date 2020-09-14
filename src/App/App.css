@@ -146,29 +146,29 @@ header h1 {
 @media only screen and (max-width: 600px) {
   .put {
     width: 250px;
-    margin-left: 15px;
+    margin-left: 40px;
     font-size: 20px;
   }
 
   .homeli {
     font-size: 25px;
-    padding-left: 0px;
-    padding-top: 0px;
+    padding-left: 10px;
+    padding-top: 10px;
   }
   .apphome {
     width: 200px;
   }
 
   .fa {
-    font-size: 20px;
-    padding-left: 25px;
+    font-size: 30px;
+    padding-left: 20px;
   }
 
   main li {
-    margin-left: 15px;
+    margin-left: 35px;
     margin-top: 10px;
 
-    width: 100px;
+    width: 80px;
 
     margin-bottom: 10px;
   }
@@ -215,5 +215,8 @@ header h1 {
   .detail h1 {
     text-align: center;
     font-size: 20px;
+  }
+  .apphead header {
+    font-size: 15px;
   }
 }
