@@ -145,7 +145,11 @@ header h1 {
 .cart h2 {
   text-align: center;
 }
-
+.payh1{
+  text-align: center;
+  font-size: 100px;
+  text-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
+}
 @media only screen and (max-width: 600px) {
   .put {
     width: 250px;
@@ -165,6 +169,7 @@ header h1 {
   .fa {
     font-size: 30px;
     padding-left: 40px;
+     
   }
 
   main li {
@@ -225,5 +230,10 @@ header h1 {
   }
   .cart h2 {
     text-align: center;
+  }
+  .payh1{
+    text-align: center;
+    font-size: 50px;
+    text-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
   }
 }

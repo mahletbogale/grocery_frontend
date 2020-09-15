@@ -25,7 +25,7 @@ class App extends Component {
       filteredItemVeg: [],
       filteredItemFruit: [],
       qty: 0,
-      total: null,
+      total: 0,
       sortValue: "",
       count: 1,
       inputValue: "",
@@ -52,9 +52,10 @@ class App extends Component {
         item.count++;
       }
     }
-    this.setState({
+    this.setState((prevState) => ({
       carts: updatedCarts,
-    });
+      qty: prevState.qty + 1,
+    }));
   };
   decrementCount = (itemName) => {
     let updatedCarts = [...this.state.carts];
@@ -63,9 +64,10 @@ class App extends Component {
         if (item.count > 1) item.count--;
       }
     }
-    this.setState({
+    this.setState((prevState) => ({
       carts: updatedCarts,
-    });
+      qty: prevState.qty - 1,
+    }));
   };
   addQty = () => {
     this.setState((prevState) => ({

@@ -1,3 +1,5 @@
+
+
 // import React, { Component } from "react";
 // import { Link } from "react-router-dom";
 // let coun;
@@ -10,6 +12,8 @@
 //   quantit=this.props.qty;
 //   pri=items.price;
 //   total= pri * quantit;
+
+
 
 //   add = (event) => {
 //     coun = this.props.count;
@@ -41,20 +45,20 @@
 //           lebel: item.lebel,
 //           count: 1,
 //         };
-//       }
+//       } 
 //        else {
 //         items[item.name].count++;
 //         console.log("hey");
 //       }
-
+      
 //     }
-
+    
 //     let result=[];
 //     for(let cart in items) {
-
+      
 //       // console.log(cart["image_url"]);
 //     let outPut= (<div className="cart">
-
+    
 //     <img src={items[cart].image_url} alt={items[cart].image_url} width="300px" />
 
 //     <p>{items[cart].name} </p>
@@ -63,6 +67,7 @@
 //     <p>{items[cart].lebel} </p>
 //     <Link to="/pay"><li>Pay</li></Link>
 
+   
 //     <h2>count:{this.props.count}</h2>
 //     {/* {items[cart].count} */}
 //     <li onClick={this.add}>+</li>
@@ -74,7 +79,7 @@
 //     }
 //     return (
 //       <div className="detail">
-//      <h1>Subtotal:{total}</h1>
+//      <h1>Subtotal:{total}</h1>   
 //        {/* <h1>Subtotal:(({items[cart].price})*{this.props.qty})</h1> */}
 //         {result}</div>
 //     );
@@ -83,16 +88,19 @@
 
 // export default Carts;
 
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
+
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 class Carts extends Component {
-  add = (event, itemName) => {
+  add = (event,itemName) => {
     this.props.incrementCount(itemName);
   };
   subtract = (event, itemName) => {
     this.props.decrementCount(itemName);
   };
   render() {
+    let TotalResult=0;
+    let total=[];
     let subtotal = 0;
     let items = {};
     for (let item of this.props.carts) {
@@ -111,7 +119,14 @@ class Carts extends Component {
       }
       // While iterating through the cart, let's
       // also compute the subtotal
-      subtotal += item.price;
+      subtotal = item.count*item.price;
+      total.push(subtotal);
+
+      
+     
+      }
+      for (let item in total){
+        TotalResult+=total[item]
     }
     let result = [];
     for (let item in items) {
@@ -130,16 +145,18 @@ class Carts extends Component {
             <li>Pay</li>
           </Link>
           <h2>count:{items[item].count}</h2>
-          <li onClick={(event) => this.add(event, items[item].name)}>+</li>
-          <li onClick={(event) => this.subtract(event, items[item].name)}>-</li>
+          <li onClick={event => this.add(event, items[item].name)}>+</li>
+          <li onClick={event => this.subtract(event, items[item].name)}>-</li>
           <li onClick={this.removeFromCart}>Delete</li>
         </div>
       );
       result.push(output);
     }
     return (
+       
       <div className="detail">
-        <h1>Subtotal:{subtotal}</h1>
+       
+    <h1>Total:{TotalResult}</h1>
         {result}
       </div>
     );

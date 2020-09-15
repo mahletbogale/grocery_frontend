@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 class Search extends Component {
   render() {
-    const inpu = this.props.inputValue;
+    // const inpu = this.props.inputValue;
     const vegan = this.props.filteredItemVeg;
     const fru = this.props.filteredItemFruit;
 

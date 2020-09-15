@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 let vegiCart;
-let vegCart;
+// let vegCart;
 
 class VegetableDetails extends Component {
   vegCart = (item) => {

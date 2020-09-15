@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 let fruitiCart;
-let fruitCart;
-let count;
+// let fruitCart;
+// let count;
 
 class FruitDetails extends Component {
   fruitCart = (item) => {
