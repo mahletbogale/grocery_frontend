@@ -9,7 +9,12 @@ class VegetableList extends Component {
           {this.props.vegetables.map((vegetable) => {
             return (
               <Link
-                onClick={() => {this.props.handleVegDetail(vegetable.id)}} key={vegetable.id} to={`/vegetabledetails/${vegetable.id}`}>
+                onClick={() => {
+                  this.props.handleVegDetail(vegetable.id);
+                }}
+                key={vegetable.id}
+                to={`/vegetabledetails/${vegetable.id}`}
+              >
                 <div className="boxes">
                   <img
                     src={vegetable.image_url}

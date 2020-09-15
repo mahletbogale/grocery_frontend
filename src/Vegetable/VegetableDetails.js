@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 let vegiCart;
@@ -8,15 +7,13 @@ class VegetableDetails extends Component {
   vegCart = (item) => {
     this.props.addCart(vegiCart);
     this.props.addQty();
-  }
+  };
   render() {
-    vegiCart=this.props.selectedVeg;
-   
+    vegiCart = this.props.selectedVeg;
 
     return (
       <div className="detail">
         <ul>
-   
           <img
             src={this.props.selectedVeg.image_url}
             alt={this.props.selectedVeg.image_url}
@@ -28,9 +25,10 @@ class VegetableDetails extends Component {
           <p>{this.props.selectedVeg.lebel} </p>
         </ul>
 
-        <Link to="/carts/" onClick={this.vegCart}> <li>Add To Cart</li> </Link>
-       
-         
+        <Link to="/carts/" onClick={this.vegCart}>
+          {" "}
+          <li>Add To Cart</li>{" "}
+        </Link>
       </div>
     );
   }

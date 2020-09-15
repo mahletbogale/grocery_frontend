@@ -9,7 +9,8 @@ class Nav extends Component {
           <li className="homeli">&#9776;</li>
         </Link>
 
-        <Link to="/carts/"><li className="fa">
+        <Link to="/carts/">
+          <li className="fa">
             <span>Cart</span>
           </li>
           <span> {this.props.qty}</span>

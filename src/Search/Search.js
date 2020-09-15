@@ -3,34 +3,27 @@ import { Link } from "react-router-dom";
 class Search extends Component {
   render() {
     const inpu = this.props.inputValue;
-    const vegan = this.props.vegetables;
-    const fru = this.props.fruits;
+    const vegan = this.props.filteredItemVeg;
+    const fru = this.props.filteredItemFruit;
 
     return (
       <div className="detail">
         if(vegan)
-        {vegan
-          .filter((veg) => veg.includes(inpu))
-          .map((filteredName) => (
-              <ul>
+        {vegan.map((filteredName) => (
+          <ul>
             <img src={filteredName.image_url} alt={filteredName.image_url} />
             <p>{filteredName.name} </p>
             <p>{filteredName.price} </p>
-            </ul>
-          ))}
+          </ul>
+        ))}
         else
-        {fru
-          .filter((fruit) => fruit.includes(inpu))
-          .map((filteredName) => (
-            <ul>
+        {fru.map((filteredName) => (
+          <ul>
             <img src={filteredName.image_url} alt={filteredName.image_url} />
             <p>{filteredName.name} </p>
             <p>{filteredName.price} </p>
-            </ul>
-          ))}
-
-
-
+          </ul>
+        ))}
         <Link to="/carts/">
           <li>Add To Cart</li>
         </Link>

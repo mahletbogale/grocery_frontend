@@ -25,7 +25,7 @@ main li {
   padding: 10px 10px;
   width: 100px;
   background: teal;
-
+  box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
   border-radius: 5px;
   margin-bottom: 40px;
 }
@@ -40,20 +40,20 @@ main a {
 
 .apphome {
   min-height: 100vh;
-
+  
   background-image: url("../image/fruit-1202313_1920.jpg"),
     url("../image/vegetables-4173647_1920.jpg");
   box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
   width: 700px;
   background-position: top, bottom;
   background-repeat: no-repeat;
-  background-size: 700px 350px;
+  background-size: 900px 450px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: 20px;
+  /* padding: 40px 0px; */
   flex-flow: row wrap;
-
+  border-radius: 15px;
   margin: 0 auto;
 }
 .list .boxbg {
@@ -76,7 +76,7 @@ img {
   border: 5px solid hsl(0, 0%, 40%);
 
   padding: 5px;
-  background: hsl(0, 0%, 20%);
+  /* background: hsl(0, 0%, 20%); */
 
   outline: 5px solid hsl(0, 0%, 60%);
 
@@ -142,6 +142,9 @@ header h1 {
 .detail h1 {
   text-align: center;
 }
+.cart h2 {
+  text-align: center;
+}
 
 @media only screen and (max-width: 600px) {
   .put {
@@ -161,7 +164,7 @@ header h1 {
 
   .fa {
     font-size: 30px;
-    padding-left: 20px;
+    padding-left: 40px;
   }
 
   main li {
@@ -179,7 +182,7 @@ header h1 {
     border: solid 5px white;
 
     padding-top: 20px;
-    margin-left: 80px;
+    margin-left: 77px;
     margin-top: 30px;
     min-height: 20vh;
   }
@@ -194,9 +197,7 @@ header h1 {
   .cart li {
     margin-left: 140px;
   }
-  .detail h1 {
-    text-align: center;
-  }
+
   .detail p {
     margin-left: 120px;
   }
@@ -218,5 +219,11 @@ header h1 {
   }
   .apphead header {
     font-size: 15px;
+  }
+  .list .boxbg {
+    padding-left: 0px;
+  }
+  .cart h2 {
+    text-align: center;
   }
 }
