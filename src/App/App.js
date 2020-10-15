@@ -62,6 +62,7 @@ class App extends Component {
     for (let item of updatedCarts) {
       if (item.name === itemName) {
         if (item.count > 1) item.count--;
+        // if(item.count < 1) qty = prevState.qty;
       }
     }
     this.setState((prevState) => ({
