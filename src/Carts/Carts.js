@@ -141,9 +141,7 @@ class Carts extends Component {
           <p>{items[item].price} </p>
           <p>{items[item].description} </p>
           <p>{items[item].lebel} </p>
-          <Link to="/pay">
-            <li>Pay</li>
-          </Link>
+          
           <h2>count:{items[item].count}</h2>
           <li onClick={event => this.add(event, items[item].name)}>+</li>
           <li onClick={event => this.subtract(event, items[item].name)}>-</li>
@@ -158,6 +156,9 @@ class Carts extends Component {
        
     <h1>Total:{TotalResult}</h1>
         {result}
+        <Link to="/pay">
+            <li className="payLi">Proceed to checkout</li>
+          </Link>
       </div>
     );
   }
