@@ -1,51 +1,91 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 class Search extends Component {
   render() {
+    
     // const inpu = this.props.inputValue;
-    const vegan = this.props.filteredItemVeg;
-    const fru = this.props.filteredItemFruit;
+    // const vegan = this.props.filteredItemVeg;
+    // const fru = this.props.filteredItemFruit;
+    const vegan = this.props.vegetables;
+    // const fru = this.props.fruits;
+ return(
+  // if(vegan){
+      vegan.filter((data)=>{
+        
+      if((this.props.search !== null)
+          // return data
+      && (data.name.toLowerCase().includes(this.props.search.toLowerCase()) ) ){
+         
+      return(
+  
+      <div>
+        
+        <ul>
+          <img src={data.image_url} alt={data.image_url} />
+          <p>{data.name} </p>
+          <p>{data.price} </p>
+        </ul>
+     
 
-    return (
-      <div className="detail">
-        if(vegan)
-        {vegan.map((filteredName) => (
-          <ul>
-            <img src={filteredName.image_url} alt={filteredName.image_url} />
-            <p>{filteredName.name} </p>
-            <p>{filteredName.price} </p>
-          </ul>
-        ))}
-        else
-        {fru.map((filteredName) => (
-          <ul>
-            <img src={filteredName.image_url} alt={filteredName.image_url} />
-            <p>{filteredName.name} </p>
-            <p>{filteredName.price} </p>
-          </ul>
-        ))}
-        <Link to="/carts/">
-          <li>Add To Cart</li>
-        </Link>
-        <li> Pay</li>
       </div>
-    );
-  }
-}
+      )}})
+         )}}
+         export default Search;
+    
+    // }else if(fru){
 
-export default Search;
+    //   const itemsF = fru.filter((data)=>{
+    //     if(this.props.search == null)
+    //         return data
+    //     else if(data.name.toLowerCase().includes(this.props.search.toLowerCase()) ){
+    //         return data
+    //     }
 
-// let  vegiSearch;
-// let  fruitSearch;
-// vegiSearch=this.props.sortVeg;
-// fruitSearch=this.props.sortFruit;
+    //   }).map(itemsF=>{
+    //     return(
+    //     <div>
+          
+    //       <ul>
+    //         <img src={itemsF.image_url} alt={itemsF.image_url} />
+    //         <p>{itemsF.name} </p>
+    //         <p>{itemsF.price} </p>
+    //       </ul>
+        
+    //     </div>
+       
+          
+    //    )})
+      
 
-/* <img
-                src={vegiSearch.image_url}
-                alt={vegiSearch.image_url}
-                width="300px"
-              />
-              {/* <p>{this.props.selectedVeg.name} </p>
-              <p>{this.props.selectedVeg.price} </p>
-              <p>{this.props.selectedVeg.description} </p>
-              <p>{this.props.selectedVeg.lebel} </p> */
+
+
+// {/* 
+
+
+    // return (
+    //   <div className="detail">
+    //     if(vegan)
+    //     {vegan.map((filteredName) => (
+    //       <ul>
+    //         <img src={filteredName.image_url} alt={filteredName.image_url} />
+    //         <p>{filteredName.name} </p>
+    //         <p>{filteredName.price} </p>
+    //       </ul>
+    //     ))}
+    //     else
+    //     {fru.map((filteredName) => (
+    //       <ul>
+    //         <img src={filteredName.image_url} alt={filteredName.image_url} />
+    //         <p>{filteredName.name} </p>
+    //         <p>{filteredName.price} </p>
+    //       </ul>
+    //     ))} */}
+        
+
+       
+  
+      
+  // }
+  //   }
+
+

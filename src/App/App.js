@@ -28,17 +28,22 @@ class App extends Component {
       total: 0,
       sortValue: "",
       count: 1,
-      inputValue: "",
+      // inputValue: "",
+      search: null,
+      index: 0,
     };
   }
   componentDidMount() {
-    fetch(APIURL + "/fruits/")
+    // fetch(APIURL + "/fruits/")
+    fetch("https://stark-anchorage-91434.herokuapp.com/fruits/")
       .then((res) => res.json())
       .then((json) => {
         this.setState({ fruits: json });
       })
       .catch(console.error);
-    fetch(APIURL + "/vegetables/")
+
+    fetch("https://stark-anchorage-91434.herokuapp.com/vegetables/")
+      // fetch(APIURL + "/vegetables/")
       .then((res) => res.json())
       .then((json) => {
         this.setState({ vegetables: json });
@@ -59,17 +64,47 @@ class App extends Component {
   };
   decrementCount = (itemName) => {
     let updatedCarts = [...this.state.carts];
+    let updatedQty = this.state.qty;
+    for (let item of updatedCarts) {
+      if (item.name === itemName && item.count > 1) {
+        item.count--;
+        updatedQty--;
+
+        this.setState((prevState) => ({
+          carts: updatedCarts,
+          qty: updatedQty,
+        }));
+      } else if (item.name === itemName && item.count <= 1) {
+        let index = updatedCarts.indexOf(item.name);
+        updatedCarts.splice(index);
+        item.count = item.count;
+      }
+      this.setState((prevState) => ({
+        count: item.count,
+        carts: updatedCarts,
+        qty: updatedCarts.length,
+      }));
+    }
+  };
+
+  deleteFromCart = (itemName) => {
+    let updatedCarts = [...this.state.carts];
+    let updatedQty = this.state.qty;
+
     for (let item of updatedCarts) {
       if (item.name === itemName) {
-        if (item.count > 1) item.count--;
-        // if(item.count < 1) qty = prevState.qty;
+        let index = updatedCarts.indexOf(item.name);
+        updatedCarts.splice(index);
+
+        updatedQty = updatedCarts.length;
       }
+      this.setState(() => ({
+        carts: updatedCarts,
+        qty: updatedQty,
+      }));
     }
-    this.setState((prevState) => ({
-      carts: updatedCarts,
-      qty: prevState.qty - 1,
-    }));
   };
+
   addQty = () => {
     this.setState((prevState) => ({
       qty: prevState.qty + 1,
@@ -127,6 +162,12 @@ class App extends Component {
   //     inputValue: inpuValue,
   //   });
   // };
+
+  handleSearch = (event) => {
+    let inputValue = event.target.value;
+    this.setState({ search: inputValue });
+  };
+
   render() {
     return (
       <div className="apphead">
@@ -223,6 +264,7 @@ class App extends Component {
                   cartPrice={this.state.cartPrice}
                   carts={this.state.carts}
                   addCart={this.addCart}
+                  deleteFromCart={this.deleteFromCart}
                   match={routerProps.match}
                 />
               )}
@@ -232,10 +274,14 @@ class App extends Component {
               exact
               render={(routerProps) => (
                 <Search
-                  inputValue={this.state.inputValue}
-                  filteredItemFruit={this.state.filteredItemFruit}
-                  filteredItemVeg={this.state.filteredItemVeg}
-                  filterOnChange={this.filterOnChange}
+                  search={this.state.search}
+                  // inputValue={this.state.inputValue}
+                  // filteredItemFruit={this.state.filteredItemFruit}
+                  // filteredItemVeg={this.state.filteredItemVeg}
+                  // filterOnChange={this.filterOnChange}
+                  vegetables={this.state.vegetables}
+                  fruits={this.state.fruits}
+                  onChange={(e) => this.handleSearch(e)}
                   match={routerProps.match}
                 />
               )}
