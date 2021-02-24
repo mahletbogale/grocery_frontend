@@ -170,37 +170,19 @@ class App extends Component {
 
   render() {
     return (
-      <div className="apphead">
-        <Header qty={this.state.qty} />
-        <main className="appmain">
-          <form>
-            <input
-              type="text"
-              className="put"
-              placeholder="Search"
-              value={this.state.inputValue}
-              onChange={this.filterOnChange}
-            />
-          </form>
-          <Link to="/vegetablelist/vegetablelist">
-            <li>Vegetables</li>
-          </Link>
-          <Link to="/comming/comming">
-            <li>Comming</li>
-          </Link>
-          <Link to="/fruitlist/fruitlist">
-            <li>Fruits</li>
-          </Link>
-          <Link to="/commingS/commingS">
-            <li>Comming</li>
-          </Link>
-          <Link to="/commingSo/commingS0">
-            <li>Comming</li>
-          </Link>
-          <Link to="/commingSo/commingS0">
-            <li>Comming</li>
-          </Link>
-          <Switch>
+     <div className="homme">
+      <div className="newhead">
+        <Header qty={this.state.qty}
+        filterOnChange={this.filterOnChange}
+        inputValue={this.state.inputValue}
+        
+        />
+        </div>
+        
+        {/* <main className="appmain"> */}
+   <main>
+         
+          {/* <Switch> */}
             <Route path="/" exact render={() => <Home />} />
             <Route
               path="/vegetablelist/vegetablelist"
@@ -291,9 +273,10 @@ class App extends Component {
               exact
               render={(routerProps) => <Pay match={routerProps.match} />}
             />
-          </Switch>
+          {/* </Switch> */}
         </main>
-      </div>
+        </div>
+      
     );
   }
 }

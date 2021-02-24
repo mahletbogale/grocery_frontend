@@ -21,6 +21,7 @@ class FruitDetails extends Component {
     return (
       <div className="detail">
         <div>
+     
           <ul>
             <img
               src={this.props.selectedFruit.image_url}

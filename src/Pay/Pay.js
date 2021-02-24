@@ -4,7 +4,7 @@ class Pay extends Component {
   render() {
     return (
       <div className="pay">
-        <h1 className="payh1">Happy Checkout!</h1>
+        <h1 className="payh1"><span>Happy</span> Checkout!</h1>
       </div>
     );
   }

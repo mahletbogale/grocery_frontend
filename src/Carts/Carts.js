@@ -73,10 +73,10 @@ class Carts extends Component {
     }
     return (
        
-      <div className="detail">
+      <div className="carts">
        
     <h1>Total:{TotalResult}</h1>
-        {result}
+    {result}
         <Link to="/pay">
             <li className="payLi">Proceed to checkout</li>
           </Link>

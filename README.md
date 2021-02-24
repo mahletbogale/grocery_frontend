@@ -1,34 +1,39 @@
-# project_four     
-My app is called Myshop app
+# Project Choice   
+Shopping Cart
 
 ## Project Description
-
-I am decided to create Ecomerce grocery app for consumer. I wanted to create this app which can be useful for ordering and purchasing of an Item and able to pay from mobile phone or any computer devices. I have done both frontend and backend .
+My App is called Myshop ,and It is an Ecomerce Grocery Full-Stack App. I built this App for purchasing Grocery Item from a mobile phone or any computer devices. I have done both frontend and backend .
 # User Stories
 
 ## MVP User Stories
-- As a user I want to be able to search an item from lists
-- As a user I want to be able to put an item I selected to the cart
-- As a user I want to be able to see an item with price ,picture and and description
-- As a user I want to be able to increament of a slected item  
+- As a User I want to be able to search an item from lists
+- As a User I want to be able to put an item I selected to the cart
+- As a User I want to be able to see an item with price ,picture and and description
+- As a User I want to be able to increament of a slected item  
 
-- As owner or Admin of the app I can add and delete Item
+- As owner or Admin of the App I can add and delete Item
 
 ## Stretch User Stories
-- As a user I want to be able to see related posts under the selected item
-- As a user I want to be able to delete a selected item from the cart
-- As a user I would like to add Alexa
-- As a user I want to be able to pay online
+- As a User I want to be able to see related posts under the selected item
+- As a User I want to be able to delete a selected item from the cart
+- As a User I would like to add Alexa
+- As a User I want to be able to pay online
+
 ## Wireframes
 
-<img width="400" alt="Screen Shot 2020-09-02 at 11 06 58 PM" src="https://user-images.githubusercontent.com/66438028/92066925-0ccbed80-ed71-11ea-8f60-3c63a162cafb.png">
+<img src="./src/image/Screen Shot 2021-02-24 at 1.04.53 AM.png">
+<img src="./src/image/Screen Shot 2021-02-24 at 1.05.22 AM.png">
+<img src="./src/image/Screen Shot 2021-02-24 at 1.05.40 AM.png">
+<img src="./src/image/Screen Shot 2021-02-24 at 1.11.57 AM.png">
 
 
-<img width="400" alt="Screen Shot 2020-09-02 at 11 09 46 PM" src="https://user-images.githubusercontent.com/66438028/92067091-79df8300-ed71-11ea-8d63-98d994d0178c.png">
 
 ## Component Hierarchy
 
 <img width="437" alt="Screen Shot 2020-09-02 at 10 57 03 PM" src="https://user-images.githubusercontent.com/66438028/92066561-32a4c280-ed70-11ea-8e4a-354188d66ecc.png">
+
+
+# Backend
 
 ## API
 
@@ -153,5 +158,4 @@ image_url: "https://st.depositphotos.com/1364311/2061/i/450/depositphotos_206164
 
 
 # technology
-  - React.js
-  - Django    
+  Vs Code   
