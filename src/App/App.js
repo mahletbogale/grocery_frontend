@@ -35,14 +35,14 @@ class App extends Component {
   }
   componentDidMount() {
     // fetch(APIURL + "/fruits/")
-    fetch("https://stark-anchorage-91434.herokuapp.com/fruits/")
+    fetch("https://powerful-garden-45358.herokuapp.com/fruits/")
       .then((res) => res.json())
       .then((json) => {
         this.setState({ fruits: json });
       })
       .catch(console.error);
 
-    fetch("https://stark-anchorage-91434.herokuapp.com/vegetables/")
+    fetch("https://powerful-garden-45358.herokuapp.com/vegetables/")
       // fetch(APIURL + "/vegetables/")
       .then((res) => res.json())
       .then((json) => {
