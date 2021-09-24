@@ -222,10 +222,14 @@ margin-top: 12px;
 }
 
    .carts{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     padding-top: 0px;
     height: 100vh;
+    
   }
   .cart  {
+  
     background-color: white;
       width: 240px;
       height: 430px;

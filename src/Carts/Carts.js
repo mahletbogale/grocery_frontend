@@ -78,7 +78,7 @@ class Carts extends Component {
     <h1>Total:{TotalResult}</h1>
     {result}
         <Link to="/pay">
-            <li className="payLi">Proceed to checkout</li>
+            <li className="payLi" >Proceed to checkout</li>
           </Link>
       </div>
     );
